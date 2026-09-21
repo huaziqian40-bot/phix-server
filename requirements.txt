@@ -1,0 +1,11 @@
+# phix 服务端依赖
+Django>=5.1,<6
+waitress>=3.0
+# 应用层加密传输（X25519 密封盒 + AES-256-GCM），见 api/e2e.py
+cryptography>=42
+# P3 令牌体系：Ed25519 签名的 JWT（访问令牌），见 api/tokens.py
+PyJWT>=2.9,<3
+
+# 仅开发/自测用（客户端侧的加密与 HTTP 压测脚本）
+requests>=2.31
+PyYAML>=6.0

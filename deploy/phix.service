@@ -1,0 +1,48 @@
+# phix 服务端 · systemd 单元（生产：192.168.5.41）
+#
+# 安装位置：/etc/systemd/system/phix.service
+# 安装方式：./deploy.py 会自动上传安装；也可手工：
+#     sudo install -m 644 /home/phix/phix-server/deploy/phix.service /etc/systemd/system/phix.service
+#     sudo systemctl daemon-reload && sudo systemctl enable --now phix.service
+#
+# 说明：
+# - 只监听 127.0.0.1:8931：公网/局域网入口一律交给前置代理（Cloudflare Tunnel 或 nginx），
+#   服务本身绝不直接暴露在 0.0.0.0。这样将来上域名时只改代理层，应用层不用动。
+#   （局域网内直连 http://192.168.5.41:8931 需要把 --host 改成 0.0.0.0，见 DEPLOY.md「局域网直连」一节）
+# - 密钥全部来自 EnvironmentFile，单元文件里不留任何秘密。
+# - 日志走 journald（stdout/stderr），应用自身的 logs/phix.log 另有一份轮转副本。
+
+[Unit]
+Description=phix 服务端（Django + waitress，账号 / Bearer 令牌 / 密文对象同步）
+Documentation=file:/home/phix/phix-server/deploy/DEPLOY.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=phix
+Group=phix
+WorkingDirectory=/home/phix/phix-server
+EnvironmentFile=/home/phix/.config/phix/env
+
+# 注意：这里用 -m waitress 的 CLI 形式，--host/--port/--threads 均已实测可用
+# （waitress.runner.HELP 明确列出这三项）。用绝对路径的 venv python，不依赖 PATH。
+ExecStart=/home/phix/phix-server/.venv/bin/python -m waitress --host=127.0.0.1 --port=8931 --threads=8 phixsvc.wsgi:application
+
+Restart=always
+RestartSec=3
+
+# 给 SQLite 留出干净的关闭时间
+KillSignal=SIGTERM
+TimeoutStopSec=20
+
+# 日志走 journald：journalctl -u phix.service -f
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=phix
+
+# phix 之外的东西一律不碰：本单元不声明任何额外路径，不做 ProtectSystem 之类的
+# 加固（会干扰 /home/phix 下的 venv 与 sqlite 写操作），保持最小惊讶。
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,8 @@
 # phix 服务端
 
-统一账号 + 端到端加密云同步服务。协议见 `D:\phix\phix-协议规范.md`。
+统一账号 + 端到端加密云同步服务。**协议规范见 [docs/协议规范.md](docs/协议规范.md)** ——
+那份文档同时约束服务端与两端客户端（`Pinghe-Launcher-Lite` 的 Python 实现、
+`PH-Launcher` 的 JS 实现）；任何一端要改协议都得先改它，且**两端参数必须逐字节一致**。
 
 **服务端只做三件事**：管账号、发 Bearer 令牌、存**不透明密文对象**。
 它没有任何密码学依赖（除 Django 外只有 waitress），**看不懂用户上传的任何内容**。
@@ -9,21 +11,33 @@
 
 ## 快速开始（本地）
 
-```powershell
-cd D:\phix\server
-.\.venv\Scripts\python.exe manage.py migrate
-.\.venv\Scripts\python.exe run_local.py            # → http://127.0.0.1:8931
+Python 3.11+。依赖只有 Django 与 waitress（`requirements.txt`）：
+
+```bash
+python -m venv .venv
+. .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python run_local.py           # → http://127.0.0.1:8931
 ```
 
-健康检查：`curl http://127.0.0.1:8931/api/v1/ping`
+健康检查：
 
-自测（需要服务在跑）：
-
-```powershell
-$env:PHIX_SERVICE_KEY = (Get-Content .service_key -Raw).Trim()
-.\.venv\Scripts\python.exe -X utf8 devtools\selftest.py         # 服务端 62 项
-.\.venv\Scripts\python.exe -X utf8 devtools\test_sync_e2e.py    # 两端同步 46 项（数据用副本）
+```bash
+curl http://127.0.0.1:8931/api/v1/ping
+# {"ok": true, "version": 1, "service": "phix", "kdf_algos": [...], "key_modes": [...], "enc": 1}
 ```
+
+自测（需要服务在跑；`.service_key` 首次启动会自动生成）：
+
+```bash
+export PHIX_SERVICE_KEY=$(cat .service_key)     # Windows: $env:PHIX_SERVICE_KEY = (Get-Content .service_key -Raw).Trim()
+python -X utf8 devtools/selftest.py             # 服务端自测
+python -X utf8 devtools/test_sync_e2e.py        # 两端同步自测（数据用副本，不碰真库）
+```
+
+> 这些脚本只依赖本仓库内容 + 一个空的 SQLite 库，**不需要任何生产环境**。
+> `devtools/` 不参与部署，可以放心跑。
 
 ---
 

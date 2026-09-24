@@ -4,10 +4,14 @@ from django.urls import path
 from . import sso as sso_views
 from . import views_auth as a
 from . import views_sync as s
+from . import views_updates as u
 
 urlpatterns = [
     # 连通性
     path("ping", a.ping, name="phix-ping"),
+
+    # 应用内自动更新（免鉴权、限流；清单见 updates.json）
+    path("update/check", u.update_check, name="phix-update-check"),
 
     # 认证
     path("auth/register", a.register, name="phix-register"),

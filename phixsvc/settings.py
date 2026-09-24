@@ -131,6 +131,9 @@ PHIX_REGISTER_LIMIT = int(os.environ.get("PHIX_REGISTER_LIMIT", 10))    # 每 IP
 PHIX_RECOVER_LIMIT = int(os.environ.get("PHIX_RECOVER_LIMIT", 8))       # 每 IP 每小时
 PHIX_KEYMATERIAL_LIMIT = int(os.environ.get("PHIX_KEYMATERIAL_LIMIT", 60))  # 每 IP 每小时
 
+# 应用内自动更新：清单文件（发布脚本生成，见 deploy/deploy.py 的 upload 部分）
+PHIX_UPDATES_FILE = os.environ.get("PHIX_UPDATES_FILE", str(BASE_DIR / "updates.json"))
+
 # ---------------- 应用层加密传输（对应 加密链路思路.md §3） ----------------
 # 打开后，带 X-Phix-Enc: 1 的请求体与响应体都是密文 —— **不接 TLS 也不怕被嗅探**。
 # 没带这个头的请求完全走原来的明文路径（老客户端、curl 调试、心履的服务间调用都不受影响）。

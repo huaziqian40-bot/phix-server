@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "updated_at": "2026-09-25T03:49:07+08:00",
+  "products": {
+    "phl": {
+      "platforms": {
+        "win": {
+          "version": "1.0.8",
+          "url": "https://phix.ing/media/downloads/phl-windows-setup.exe",
+          "sha256": "1fd8bc4194c05f114836e8c6e6a4d9a876ce3c26e5cf759a7da1c1407577139e",
+          "size": 171910200,
+          "notes": "AI 会话修复：思考内容、工具轮线格式、流式输出、Markdown 渲染、AI 页面选择不再被刷新冲掉。"
+        },
+        "mac": {
+          "version": "1.0.8",
+          "url": "https://phix.ing/media/downloads/phl-macos.dmg",
+          "sha256": "d54e6fc2fa90da0e043bcf17ca5f49f397205b529e7e032a4a35d13f20f92bd2",
+          "size": 212823674,
+          "notes": "同上；未签名，首次安装/更新后需右键→打开。"
+        }
+      }
+    },
+    "phl-lite": {
+      "platforms": {
+        "win": {
+          "version": "1.2.1",
+          "url": "https://phix.ing/media/downloads/phllite-windows-setup.msi",
+          "sha256": "0455c3fc28be6f530a95ed195993da5bf69776739c40e2c1116307395d3ae543",
+          "size": 54796288,
+          "notes": "AI 会话修复：思考内容、工具调用线格式、Markdown 渲染。"
+        },
+        "mac": {
+          "version": "1.2.1",
+          "url": "https://phix.ing/media/downloads/phllite-macos.dmg",
+          "sha256": "638c107636278f76b2c1c55855f759cfa2013d90626dfbbf0a85ede70fe31ccb",
+          "size": 38775769,
+          "notes": "同上；未签名，需右键→打开。"
+        }
+      }
+    },
+    "xinlv": {
+      "platforms": {
+        "win": {
+          "version": "1.1.5",
+          "url": "https://phix.ing/media/downloads/xinlv-windows-setup.exe",
+          "sha256": "0532bb35717302ac629a0d4a49e662199affe51f5e6587cfa9cb71bc35efdc70",
+          "size": 77864960,
+          "notes": "phix 首启引导；托盘通知。"
+        },
+        "mac": {
+          "version": "1.1.5",
+          "url": "https://phix.ing/media/downloads/xinlv-macos.dmg",
+          "sha256": "09a3ba7930fdb38b9a9d86b48b3b6b96db1a5d927812763e90c2ae986d806747",
+          "size": 120108419,
+          "notes": "phix 首启引导；未签名，需右键→打开。"
+        },
+        "android": {
+          "version": "1.2.31",
+          "url": "https://phix.ing/media/downloads/xinlv-android.apk",
+          "sha256": "091009c1ae622892facc220e562bd498f065384e9465b462ed82e13dedd1dce8",
+          "size": 5596332,
+          "notes": "phix 首启引导；通知权限优化。"
+        }
+      }
+    }
+  }
+}

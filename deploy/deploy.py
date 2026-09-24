@@ -509,6 +509,10 @@ def step_sync(remote: Remote, args) -> int:
         if rsize == lsize and not args.force:
             LOG.info(f"未变，跳过  {rel}（{lsize} 字节）")
             continue
+        # 上传前确保远端父目录存在（新文件所在的新目录不会被初次遍历建出来）
+        parent = posixpath.dirname(rp)
+        if parent and parent != REMOTE_ROOT:
+            remote.makedirs(parent)
         remote.put_file(local, rp, mode=0o644)
         changed += 1
         LOG.ok(f"已上传  {rel}（{lsize} 字节{'' if rsize is None else f'，原 {rsize} 字节'}）")

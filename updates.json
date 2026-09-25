@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25T14:46:27+08:00",
+  "updated_at": "2026-09-25T18:36:46+08:00",
   "products": {
     "phl": {
       "platforms": {
@@ -13,10 +13,10 @@
         },
         "mac": {
           "version": "1.0.8",
-          "url": "https://phix.ing/media/downloads/phl-macos.dmg",
-          "sha256": "d54e6fc2fa90da0e043bcf17ca5f49f397205b529e7e032a4a35d13f20f92bd2",
-          "size": 212823674,
-          "notes": "同上；未签名，首次安装/更新后需右键→打开。"
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.8-macOS-x64.zip",
+          "sha256": "4f31222696521ff6aa759f50af595f5f00ef5748af2000ffc1ee31d4e5094370",
+          "size": 213099917,
+          "notes": "同上。未签名版：更新会自动替换应用，首次打开请右键 →「打开」一次。"
         }
       }
     },
@@ -31,10 +31,10 @@
         },
         "mac": {
           "version": "1.2.1",
-          "url": "https://phix.ing/media/downloads/phllite-macos.dmg",
-          "sha256": "638c107636278f76b2c1c55855f759cfa2013d90626dfbbf0a85ede70fe31ccb",
-          "size": 38775769,
-          "notes": "同上；未签名，需右键→打开。"
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip",
+          "sha256": "4856fec11595a66413593bf68848341eff941d21fd2b271d746a07cfb610aee9",
+          "size": 34472247,
+          "notes": "同上。未签名版：更新会自动替换应用，首次打开请右键 →「打开」一次。"
         }
       }
     },
@@ -49,17 +49,17 @@
         },
         "mac": {
           "version": "1.1.5",
-          "url": "https://phix.ing/media/downloads/xinlv-macos.dmg",
-          "sha256": "d4547d1148dac64e812a12afc648b6c895f9010198d25e8df199cf1802274f2c",
-          "size": 120107656,
-          "notes": "phix 首启引导；未签名，需右键→打开。"
+          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.5.zip",
+          "sha256": "15b07afa81f5ab2093b222b590a0a0eaaff12d9f81d41dff06dd5d48f8051870",
+          "size": 113624455,
+          "notes": "phix 首启引导。未签名版：更新会自动替换应用，首次打开请右键 →「打开」一次。"
         },
         "android": {
           "version": "1.2.31",
           "url": "https://phix.ing/media/downloads/xinlv-android.apk",
-          "sha256": "89d88e4dd67a5c62a3e006e9c872e5f111530ec2e6abaa67f1eda752344cf490",
-          "size": 5599180,
-          "notes": "phix 首启引导；通知权限优化。"
+          "sha256": "e66087a1b02f8c251a99451c63c60e43fc64237e25b31a4550558897ccca5f7e",
+          "size": 5602420,
+          "notes": "phix 首启引导；通知权限优化。进入软件时会弹更新卡片（可取消 / 跳过本版本 / 更新）。"
         }
       }
     }

@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25T03:49:07+08:00",
+  "updated_at": "2026-09-25T10:56:43+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
           "version": "1.0.8",
-          "url": "https://phix.ing/media/downloads/phl-windows-setup.exe",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.8-Setup.exe",
           "sha256": "1fd8bc4194c05f114836e8c6e6a4d9a876ce3c26e5cf759a7da1c1407577139e",
           "size": 171910200,
           "notes": "AI 会话修复：思考内容、工具轮线格式、流式输出、Markdown 渲染、AI 页面选择不再被刷新冲掉。"
@@ -24,9 +24,9 @@
       "platforms": {
         "win": {
           "version": "1.2.1",
-          "url": "https://phix.ing/media/downloads/phllite-windows-setup.msi",
-          "sha256": "0455c3fc28be6f530a95ed195993da5bf69776739c40e2c1116307395d3ae543",
-          "size": 54796288,
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe",
+          "sha256": "87a39e91a93399b27e57b427d5c4410393299582fb2550cb64f4d0bae9f9ce5a",
+          "size": 55158625,
           "notes": "AI 会话修复：思考内容、工具调用线格式、Markdown 渲染。"
         },
         "mac": {
@@ -42,10 +42,10 @@
       "platforms": {
         "win": {
           "version": "1.1.5",
-          "url": "https://phix.ing/media/downloads/xinlv-windows-setup.exe",
-          "sha256": "0532bb35717302ac629a0d4a49e662199affe51f5e6587cfa9cb71bc35efdc70",
-          "size": 77864960,
-          "notes": "phix 首启引导；托盘通知。"
+          "url": "https://phix.ing/media/downloads/xinlv-windows.zip",
+          "sha256": "c65a57669f944544f16d1076c35b4c9c60ec74ecbc8355498b7bdbfa1f9d719b",
+          "size": 76191059,
+          "notes": "phix 首启引导；托盘通知。（自更新载荷为便携版 zip：客户端下载后整体解压替换）"
         },
         "mac": {
           "version": "1.1.5",

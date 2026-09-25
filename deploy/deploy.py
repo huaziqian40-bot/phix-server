@@ -30,6 +30,7 @@ import hashlib
 import io
 import os
 import posixpath
+import re
 import secrets
 import socket
 import stat as statmod
@@ -373,6 +374,17 @@ class Remote:
         except IOError:
             return None
 
+
+    def sha256(self, path: str) -> str:
+        """远端文件的 sha256（拿不到返回空串）。
+
+        用途：只比文件大小会漏传 —— 实测两个 APK 恰好同为 5,602,420 字节但内容不同，
+        按大小判定"未变"会让生产机一直服役旧包，客户端 SHA256 校验失败。
+        """
+        out = self.out(f"sha256sum {shq(path)} 2>/dev/null | cut -d' ' -f1")
+        got = out.strip().split("\n")[-1].strip() if out.strip() else ""
+        return got if re.fullmatch(r"[0-9a-f]{64}", got) else ""
+
     def put_text(self, remote_path: str, text: str, mode: int = 0o600) -> None:
         data = text.encode("utf-8")
         self.sftp.putfo(io.BytesIO(data), remote_path)
@@ -405,6 +417,15 @@ class Remote:
 def shq(s: str) -> str:
     """POSIX 单引号转义。"""
     return "'" + s.replace("'", "'\"'\"'") + "'"
+
+
+def sha256_of_file(path) -> str:
+    """本地文件 sha256（分块读，安装包 171 MB 也不吃内存）。"""
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def md5_of(data: bytes) -> str:
@@ -506,8 +527,12 @@ def step_sync(remote: Remote, args) -> int:
         rp = posixpath.join(REMOTE_ROOT, rel)
         lsize = local.stat().st_size
         rsize = remote.file_size(rp)
-        if rsize == lsize and not args.force:
-            LOG.info(f"未变，跳过  {rel}（{lsize} 字节）")
+        # 大小相同**不等于**内容相同：实测 xinlv-android.apk 与 xinlv-windows-setup.exe
+        # 新旧版本恰好同字节数，只比大小会漏传 → 生产机继续服役旧包，客户端 SHA256 校验失败。
+        # 所以大小相同时再用 sha256 确认一次（空文件直接认为相同）。
+        same = rsize == lsize and (lsize == 0 or sha256_of_file(local) == remote.sha256(rp))
+        if same and not args.force:
+            LOG.info(f"未变，跳过  {rel}（{lsize} 字节，哈希一致）")
             continue
         # 上传前确保远端父目录存在（新文件所在的新目录不会被初次遍历建出来）
         parent = posixpath.dirname(rp)

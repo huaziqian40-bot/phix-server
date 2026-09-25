@@ -1,19 +1,19 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25T19:24:27+08:00",
+  "updated_at": "2026-09-25T19:30:29+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
           "version": "1.0.9",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.9-Setup.exe?v=67775959",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.9-Setup.exe?v=67775959bc83",
           "sha256": "67775959bc83cf9d23653fbfdf965eb8b157ef260989c6e4e32c171668dcc9b5",
           "size": 172214729,
           "notes": "AI 会话：思考内容、工具轮线格式、流式输出、Markdown 渲染；自动更新与界面修复。"
         },
         "mac": {
           "version": "1.0.9",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.9-macOS-x64.zip?v=c0375ee4",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.9-macOS-x64.zip?v=c0375ee4e674",
           "sha256": "c0375ee4e67475ddd580d5e30b8e002d036d7a1870bfce219088ca3bc726dba6",
           "size": 213099907,
           "notes": "同上。未签名版：更新会自动下载并替换应用，首次打开请右键 →「打开」一次。"
@@ -24,14 +24,14 @@
       "platforms": {
         "win": {
           "version": "1.2.2",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=225338d2",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=225338d2a8c6",
           "sha256": "225338d2a8c6315f7e54d104143cd221d5d1d1be7ef3681f65be57716ba26305",
           "size": 55163631,
           "notes": "AI 会话修复：思考内容、工具调用线格式、Markdown 渲染。"
         },
         "mac": {
           "version": "1.2.2",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=3f7f50f4",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=3f7f50f4c841",
           "sha256": "3f7f50f4c841d05108b1520294a734d2a312f79ff4279e115293609c51fadf53",
           "size": 34471010,
           "notes": "同上。未签名版：更新会自动下载并替换应用，首次打开请右键 →「打开」一次。"
@@ -42,21 +42,21 @@
       "platforms": {
         "win": {
           "version": "1.1.6",
-          "url": "https://phix.ing/media/downloads/xinlv-windows.zip?v=42a0722a",
+          "url": "https://phix.ing/media/downloads/xinlv-windows.zip?v=42a0722ad260",
           "sha256": "42a0722ad260204785f944ace9f83dae2cbf596a8be2652a2c3ad3d9db95eefc",
           "size": 78477783,
           "notes": "phix 首启引导；托盘通知。（载荷为便携版 zip：客户端下载后整体解压替换）"
         },
         "mac": {
           "version": "1.1.6",
-          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.6.zip?v=90f7b9b2",
+          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.6.zip?v=90f7b9b254fb",
           "sha256": "90f7b9b254fb9b394619c9eca15957fc389884b026edd98e4a84f7fb54f83e4b",
           "size": 113624462,
           "notes": "phix 首启引导。未签名版：更新会自动下载并替换应用，首次打开请右键 →「打开」一次。"
         },
         "android": {
           "version": "1.2.32",
-          "url": "https://phix.ing/media/downloads/xinlv-android.apk?v=f0ba2620",
+          "url": "https://phix.ing/media/downloads/xinlv-android.apk?v=f0ba26208a5d",
           "sha256": "f0ba26208a5db95dde36770e5ec64fbda89185b9d2af7d01d2cb1a4a29e51c87",
           "size": 5602420,
           "notes": "phix 首启引导。进入软件时会弹更新卡片（可取消 / 跳过本版本 / 更新）。"

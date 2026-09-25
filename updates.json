@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25T10:56:43+08:00",
+  "updated_at": "2026-09-25T14:46:27+08:00",
   "products": {
     "phl": {
       "platforms": {
@@ -43,22 +43,22 @@
         "win": {
           "version": "1.1.5",
           "url": "https://phix.ing/media/downloads/xinlv-windows.zip",
-          "sha256": "c65a57669f944544f16d1076c35b4c9c60ec74ecbc8355498b7bdbfa1f9d719b",
-          "size": 76191059,
+          "sha256": "bf4a3694ecb09ab58fb2179ec5e19c861642ca641c459a19baaa1ec0d7eacfc6",
+          "size": 76194224,
           "notes": "phix 首启引导；托盘通知。（自更新载荷为便携版 zip：客户端下载后整体解压替换）"
         },
         "mac": {
           "version": "1.1.5",
           "url": "https://phix.ing/media/downloads/xinlv-macos.dmg",
-          "sha256": "09a3ba7930fdb38b9a9d86b48b3b6b96db1a5d927812763e90c2ae986d806747",
-          "size": 120108419,
+          "sha256": "d4547d1148dac64e812a12afc648b6c895f9010198d25e8df199cf1802274f2c",
+          "size": 120107656,
           "notes": "phix 首启引导；未签名，需右键→打开。"
         },
         "android": {
           "version": "1.2.31",
           "url": "https://phix.ing/media/downloads/xinlv-android.apk",
-          "sha256": "091009c1ae622892facc220e562bd498f065384e9465b462ed82e13dedd1dce8",
-          "size": 5596332,
+          "sha256": "89d88e4dd67a5c62a3e006e9c872e5f111530ec2e6abaa67f1eda752344cf490",
+          "size": 5599180,
           "notes": "phix 首启引导；通知权限优化。"
         }
       }

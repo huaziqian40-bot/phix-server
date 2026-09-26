@@ -1,58 +1,58 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26T02:11:48+08:00",
+  "updated_at": "2026-09-26T21:10:15+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
-          "version": "1.0.10",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.10-Setup.exe?v=21965f3737a5",
-          "sha256": "21965f3737a5bf0e5cbff766181f90a99091fd9ad5b30fe0745b296865927b77",
-          "size": 172214770,
-          "notes": "AI 会话：思考内容、工具轮线格式、流式输出、Markdown 渲染；自动更新与界面修复。"
+          "version": "1.0.11",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.11-Setup.exe?v=13b777219543",
+          "sha256": "13b7772195433a73a0b3530b3280cfef9f163c7d2c0351d54552b26df9efc0bc",
+          "size": 172220009,
+          "notes": "更新方式改为卡片确认：进入软件时弹卡片显示版本号与更新内容，可选「取消 / 跳过本版本 / 更新」——只有点「更新」才会下载安装。"
         },
         "mac": {
-          "version": "1.0.10",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.10-macOS-x64.zip?v=c31f70a14684",
-          "sha256": "c31f70a14684884993fd0d19a603e5dbcff91de8272014c69a1a7466ac437e26",
-          "size": 213099900,
-          "notes": "同上。未签名版：更新会自动下载并替换应用，首次打开请右键 →「打开」一次。"
+          "version": "1.0.11",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.11-macOS-x64.zip?v=96a38dc1c712",
+          "sha256": "96a38dc1c7120205c97ad6a8bf6880089c3a08e48ede6c2cc283b7c78fe8b841",
+          "size": 213120013,
+          "notes": "更新方式改为卡片确认（取消 / 跳过本版本 / 更新）；未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }
     },
     "phl-lite": {
       "platforms": {
         "win": {
-          "version": "1.2.3",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=d0c99f1e5e74",
-          "sha256": "d0c99f1e5e74a000dbad6cffedddd90847793354cd196e51845a69f6a6512581",
-          "size": 55163591,
-          "notes": "AI 会话修复：思考内容、工具调用线格式、Markdown 渲染。"
+          "version": "1.2.4",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=183aadea1d87",
+          "sha256": "183aadea1d8764fff56f81c9a3e159a4bac729ec5a6fc2c4980eba1604d0edb9",
+          "size": 55168659,
+          "notes": "更新方式改为卡片确认：进入软件时弹卡片显示版本号与更新内容，可选「取消 / 跳过本版本 / 更新」——只有点「更新」才会下载替换。"
         },
         "mac": {
-          "version": "1.2.3",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=519fecc778c5",
-          "sha256": "519fecc778c5f5d8e70e7872d445dce5d1a69125fd29e6d0438e1a3a4516d2a3",
-          "size": 34472040,
-          "notes": "同上。未签名版：更新会自动下载并替换应用，首次打开请右键 →「打开」一次。"
+          "version": "1.2.4",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=48f12cfc6a6d",
+          "sha256": "48f12cfc6a6db876559ccaa04964647048a88515b9f20e164740e9b6880c508c",
+          "size": 34477849,
+          "notes": "更新方式改为卡片确认（取消 / 跳过本版本 / 更新）；未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }
     },
     "xinlv": {
       "platforms": {
         "win": {
-          "version": "1.1.7",
-          "url": "https://phix.ing/updates/xinlv/xinlv-windows.zip?v=9cd526129b5e",
-          "sha256": "9cd526129b5e89a8c1d44187e4b594a58c6cb11fedd48a3ee7c810f9a54bf3f5",
-          "size": 78477782,
-          "notes": "phix 首启引导；托盘通知。（载荷为便携版 zip：客户端下载后整体解压替换）"
+          "version": "1.1.8",
+          "url": "https://phix.ing/updates/xinlv/xinlv-windows.zip?v=d9ebdd0d2b6e",
+          "sha256": "d9ebdd0d2b6effa69e42a272ffe85fe07e23e0d74e0a5cea5b72770bb2e41b81",
+          "size": 78486077,
+          "notes": "更新方式改为卡片确认：进入软件时弹卡片显示版本号与更新内容，可选「取消 / 跳过本版本 / 更新」——只有点「更新」才会下载替换。"
         },
         "mac": {
-          "version": "1.1.7",
-          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.7.zip?v=e4325956e33d",
-          "sha256": "e4325956e33dc66d67318da3dbff37e6d90d53da440309d0411c73c0967ea775",
-          "size": 113624474,
-          "notes": "phix 首启引导。未签名版：更新会自动下载并替换应用，首次打开请右键 →「打开」一次。"
+          "version": "1.1.8",
+          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.8.zip?v=5b93adf5a1c5",
+          "sha256": "5b93adf5a1c55806efe016721be9e4a569dca9db6226de9a924857606a45ded0",
+          "size": 113630029,
+          "notes": "更新方式改为卡片确认（取消 / 跳过本版本 / 更新）；未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         },
         "android": {
           "version": "1.2.33",

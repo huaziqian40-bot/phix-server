@@ -1,21 +1,21 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26T21:10:15+08:00",
+  "updated_at": "2026-09-28T16:48:45+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
           "version": "1.0.11",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.11-Setup.exe?v=13b777219543",
-          "sha256": "13b7772195433a73a0b3530b3280cfef9f163c7d2c0351d54552b26df9efc0bc",
-          "size": 172220009,
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.11-Setup.exe?v=3a587f4bde94",
+          "sha256": "3a587f4bde949acd04ad689fe4f94ea871d7ca9cf6f89d75275525809f7089a5",
+          "size": 172234530,
           "notes": "更新方式改为卡片确认：进入软件时弹卡片显示版本号与更新内容，可选「取消 / 跳过本版本 / 更新」——只有点「更新」才会下载安装。"
         },
         "mac": {
           "version": "1.0.11",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.11-macOS-x64.zip?v=96a38dc1c712",
-          "sha256": "96a38dc1c7120205c97ad6a8bf6880089c3a08e48ede6c2cc283b7c78fe8b841",
-          "size": 213120013,
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.11-macOS-x64.zip?v=95a5ba85dc2c",
+          "sha256": "95a5ba85dc2c7db84d79b3ef559c6c8bea4c5bb04f202748f43e469435321ec4",
+          "size": 213123281,
           "notes": "更新方式改为卡片确认（取消 / 跳过本版本 / 更新）；未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }
@@ -24,16 +24,16 @@
       "platforms": {
         "win": {
           "version": "1.2.4",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=183aadea1d87",
-          "sha256": "183aadea1d8764fff56f81c9a3e159a4bac729ec5a6fc2c4980eba1604d0edb9",
-          "size": 55168659,
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=29d7cca5a007",
+          "sha256": "29d7cca5a007111488249c0715504c57f917d6cc163ede3986e06f96e5deb833",
+          "size": 55181429,
           "notes": "更新方式改为卡片确认：进入软件时弹卡片显示版本号与更新内容，可选「取消 / 跳过本版本 / 更新」——只有点「更新」才会下载替换。"
         },
         "mac": {
           "version": "1.2.4",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=48f12cfc6a6d",
-          "sha256": "48f12cfc6a6db876559ccaa04964647048a88515b9f20e164740e9b6880c508c",
-          "size": 34477849,
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=b7b179303f0f",
+          "sha256": "b7b179303f0f47da99b7d6f35bb77c8a6c7cc308f432d5a6d87f12735061698d",
+          "size": 34489995,
           "notes": "更新方式改为卡片确认（取消 / 跳过本版本 / 更新）；未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }
@@ -42,16 +42,16 @@
       "platforms": {
         "win": {
           "version": "1.1.8",
-          "url": "https://phix.ing/updates/xinlv/xinlv-windows.zip?v=d9ebdd0d2b6e",
-          "sha256": "d9ebdd0d2b6effa69e42a272ffe85fe07e23e0d74e0a5cea5b72770bb2e41b81",
-          "size": 78486077,
+          "url": "https://phix.ing/updates/xinlv/xinlv-windows.zip?v=0b3b2dce2cbb",
+          "sha256": "0b3b2dce2cbb58fb5f3fec5a07d7149bbaa6a341f1cfa8e59c0c6cdbc26933d2",
+          "size": 78485162,
           "notes": "更新方式改为卡片确认：进入软件时弹卡片显示版本号与更新内容，可选「取消 / 跳过本版本 / 更新」——只有点「更新」才会下载替换。"
         },
         "mac": {
           "version": "1.1.8",
-          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.8.zip?v=5b93adf5a1c5",
-          "sha256": "5b93adf5a1c55806efe016721be9e4a569dca9db6226de9a924857606a45ded0",
-          "size": 113630029,
+          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.8.zip?v=3bed89a103bb",
+          "sha256": "3bed89a103bb507d76a4c224a2fce6499eefb081cc19943c0656d44594afcf23",
+          "size": 113632103,
           "notes": "更新方式改为卡片确认（取消 / 跳过本版本 / 更新）；未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         },
         "android": {

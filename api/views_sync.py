@@ -10,13 +10,14 @@ import logging
 
 from django.conf import settings
 from django.db import transaction
-from django.db.models import Sum
+from django.db.models import Max, Sum
 from django.utils import timezone
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
 from .models import SyncObject, SyncRevision, purge_old_revisions
 from .utils import (check_object_name, err, iso, json_body, limiter, ok,
                     require_token, sha256_hex)
+from . import syncwatch
 
 log = logging.getLogger("phix.sync")
 
@@ -91,6 +92,10 @@ def _write_object(user, name, base_revision, payload, device, deleted=False):
         )
         purge_old_revisions(obj)
 
+    # 叫醒所有挂在 /sync/watch 上的客户端：云端变了，别再等了。
+    # 放在事务外 —— 万一 notify 出问题，也绝不能把已经写成功的对象回滚掉。
+    syncwatch.bump()
+
     return {
         "name": obj.name,
         "revision": obj.revision,
@@ -122,6 +127,56 @@ def manifest(request):
         },
         "objects": [r.as_manifest_dict() for r in rows],
     })
+
+
+# ---------------- 长轮询：有变化就立刻回 ----------------
+
+def _cursor(user) -> str:
+    """这个账号云端状态的**不透明光标**。
+
+    只看两样：对象条数 + 最新一次写入时间。任何写入/删除都会把 `updated_at`
+    推到最新，所以光标必然变化；没变化就说明这一轮真的什么都没发生。
+
+    从库里现算（而不是记在进程内存里），换 worker、重启服务都不会漏变化。
+    """
+    agg = SyncObject.objects.filter(user=user).aggregate(
+        n=Sum("size"), latest=Max("updated_at"))
+    latest = agg["latest"]
+    return f"{SyncObject.objects.filter(user=user).count()}:{iso(latest) if latest else ''}"
+
+
+@require_GET
+@require_token
+def watch(request):
+    """挂着不回，直到云端变了或超时。
+
+    查询参数 `cursor`：客户端上次拿到的光标（不传 = 立刻返回当前状态）。
+    响应 `{"changed": bool, "cursor": "...", "server_time": "..."}`。
+    客户端拿到 `changed=true` 就立刻跑一次正常同步；`false` 说明只是超时，再挂一次即可。
+
+    为什么值得：原来客户端要自己定时间隔去问（PHL 1 秒、PHL Lite 10 分钟），
+    延迟最坏等于那个间隔。挂在这里之后，别的设备一改，这边一个 RTT 就知道。
+    """
+    user = request.phix_user
+    since = str(request.GET.get("cursor") or "").strip()
+    if not since:
+        # 没带光标：当作"第一次问"，直接把当前光标给出去，不挂。
+        return ok({"changed": False, "cursor": _cursor(user),
+                   "server_time": timezone.now().isoformat()})
+
+    changed, cursor = syncwatch.wait_for_change(lambda: _cursor(user), since)
+    if changed:
+        rows = SyncObject.objects.filter(user=user).order_by("name")
+        # 顺带把清单带上：客户端拿到就能直接决定要拉哪几个，
+        # 省掉"醒了 → 再单独问一次清单"的往返。
+        return ok({
+            "changed": True,
+            "cursor": cursor,
+            "server_time": timezone.now().isoformat(),
+            "objects": [r.as_manifest_dict() for r in rows],
+        })
+    return ok({"changed": False, "cursor": cursor,
+               "server_time": timezone.now().isoformat()})
 
 
 # ---------------- 单对象 ----------------

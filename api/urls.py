@@ -40,6 +40,8 @@ urlpatterns = [
 
     # 云同步
     path("sync/manifest", s.manifest, name="phix-manifest"),
+    # 长轮询：挂着等云端变化，客户端不再自己定时间隔去问（见 api/syncwatch.py）
+    path("sync/watch", s.watch, name="phix-watch"),
     path("sync/objects/batch", s.batch, name="phix-batch"),
     path("sync/objects/<str:name>", s.object_view, name="phix-object"),
     path("sync/objects/<str:name>/revisions", s.revisions, name="phix-object-revisions"),

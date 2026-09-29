@@ -60,6 +60,18 @@ DROPIN_PATH = DROPIN_DIR + "/10-listen.conf"
 SERVICE_NAME = "phix.service"
 
 PORT = 8931
+
+#: waitress 的工作线程数。原来只有 8 —— 那时候每个请求都是"秒进秒出"，8 个够用。
+#: 现在长轮询（`/api/v1/sync/watch`）会把请求**挂住最多 25 秒**，而挂住的请求
+#: 实打实占着一个线程，8 个客户端一起挂就等于把服务端占满（连唤醒它的写请求都进不来）。
+#: 挂起是阻塞在 Condition 上、不烧 CPU，所以把线程数抬到 24 几乎没有代价。
+WAITRESS_THREADS = 24
+
+#: 同时允许挂起的长轮询个数（见 `api/syncwatch.py` 的 `WATCH_SLOTS`）。
+#: 限死成 24 的四分之一，保证任何时候都留下大部分线程处理正常请求；
+#: 超出的客户端会拿到 `retry_after` 退化成短轮询，延迟仍是秒级。
+WATCH_SLOTS = 6
+
 LISTEN_HOST = "127.0.0.1"        # phix.service 单元文件里的绑定地址（安全默认：只本机）
 # 局域网直连用的绑定地址。默认 0.0.0.0，因为 phix 是内网学习助手：
 # 客户端（Windows/手机）要能直接连 8931。用 systemd drop-in 覆盖，不动主单元文件，
@@ -755,8 +767,16 @@ def step_systemd(remote: Remote, args, changed: bool) -> None:
         "# 删除本 drop-in 后 systemctl daemon-reload 即恢复「只监听本机」。\n"
         "[Service]\n"
         "ExecStart=\n"
-        f"ExecStart={REMOTE_PY} -m waitress --host={bind_host} --port={PORT} --threads=8 "
+        f"ExecStart={REMOTE_PY} -m waitress --host={bind_host} --port={PORT} --threads={WAITRESS_THREADS} "
         "phixsvc.wsgi:application\n"
+        # 长轮询（/api/v1/sync/watch）会把请求挂住最多 25 秒，而 waitress 每个挂起的
+        # 请求就占一个线程 —— 所以线程数不能还是 8：
+        # 8 个客户端一起挂上就把服务端占满，连"写入"（也就是让长轮询醒过来的那个请求）
+        # 都得排队，同步反而从"秒级"退化成"卡死"。
+        # 线程数给到 24，再用 PHIX_WATCH_SLOTS 把**同时挂起**的个数限死在 6，
+        # 保证任何时候都留得下 18 个线程处理正常请求。
+        # 挂起的线程是阻塞在 Condition 上（不烧 CPU），多几十个线程的代价可以忽略。
+        f"Environment=PHIX_WATCH_SLOTS={WATCH_SLOTS}\n"
     )
     dropin_md5_new = md5_of(dropin.encode("utf-8"))
     dropin_md5_old = remote.out(f"md5sum {DROPIN_PATH} 2>/dev/null | cut -d' ' -f1") if remote.file_exists(DROPIN_PATH) else ""

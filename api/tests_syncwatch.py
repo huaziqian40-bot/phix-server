@@ -186,3 +186,78 @@ class SyncWatchViewTest(TransactionTestCase):
     def test_requires_auth(self):
         resp = self.client.get("/api/v1/sync/watch")
         self.assertIn(resp.status_code, (401, 403), "长轮询也要鉴权，不能白挂")
+
+
+class SyncWatchSlotTest(TransactionTestCase):
+    """挂起名额：**这是长轮询不把服务端拖垮的唯一保障**。
+
+    挂起的请求实打实占着一个 waitress 线程（25 秒），所以名额满了必须立刻打回，
+    并且要明确告诉客户端过多久再来 —— 否则客户端会把"被打回"当成"超时"而立刻重挂，
+    变成热循环，比不挂还糟。
+    """
+
+    def setUp(self):
+        limiter.clear()
+        self.user = get_user_model().objects.create_user(
+            username="watchslot", password="Unit-Test-Pw-1")
+        self.token = _session_token(self.user)
+        self.client = Client()
+        # 名额是模块级的，测试之间会互相干扰：每个用例换成自己的那份。
+        patcher = mock.patch.object(syncwatch, "_slots",
+                                    threading.BoundedSemaphore(2))
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def _watch(self, cursor=""):
+        url = "/api/v1/sync/watch"
+        if cursor:
+            url += f"?cursor={cursor}"
+        return self.client.get(url, HTTP_AUTHORIZATION=f"Bearer {self.token}")
+
+    def test_slots_are_finite_and_reusable(self):
+        self.assertTrue(syncwatch.try_acquire_slot())
+        self.assertTrue(syncwatch.try_acquire_slot())
+        self.assertFalse(syncwatch.try_acquire_slot(), "名额用完了就该拒绝，而不是排队等")
+        syncwatch.release_slot()
+        self.assertTrue(syncwatch.try_acquire_slot(), "还回来之后应该能再拿到")
+
+    def test_releasing_too_many_times_is_not_fatal(self):
+        """漏还名额是 bug，但不该把请求打成 500 —— 宁可少一个名额也别 500。"""
+        syncwatch.release_slot()
+        syncwatch.release_slot()
+
+    def test_busy_server_returns_at_once_with_retry_after(self):
+        cursor = self._watch().json()["cursor"]
+        self.assertTrue(syncwatch.try_acquire_slot())
+        self.assertTrue(syncwatch.try_acquire_slot())
+        t0 = time.monotonic()
+        body = self._watch(cursor).json()
+        took = time.monotonic() - t0
+        self.assertFalse(body["changed"])
+        self.assertIn("retry_after", body,
+                      "名额满了必须明确说一声，否则客户端分不清它和超时")
+        self.assertGreater(body["retry_after"], 0)
+        self.assertLess(took, 1.0, "名额满了就该立刻回，绝不能再挂住一个线程")
+
+    def test_busy_response_still_carries_a_cursor(self):
+        cursor = self._watch().json()["cursor"]
+        self.assertTrue(syncwatch.try_acquire_slot())
+        self.assertTrue(syncwatch.try_acquire_slot())
+        body = self._watch(cursor).json()
+        self.assertTrue(body.get("cursor"), "被打回也要给光标，客户端才能接着用")
+
+    def test_slot_is_returned_after_a_normal_hold(self):
+        cursor = self._watch().json()["cursor"]
+        with mock.patch.object(syncwatch, "MAX_HOLD_SECONDS", 0.3):
+            self._watch(cursor)
+        self.assertEqual(syncwatch.free_slots(), 2, "一轮结束必须把名额还回去")
+
+    def test_slot_is_returned_even_when_the_wait_blows_up(self):
+        """客户端中途断开会让 waitress 抛异常打断挂起 —— 那时也必须还名额，
+        否则漏还几次之后长轮询就等于被永久关掉了。"""
+        cursor = self._watch().json()["cursor"]
+        with mock.patch.object(syncwatch, "wait_for_change",
+                               side_effect=RuntimeError("客户端断了")):
+            with self.assertRaises(RuntimeError):
+                self._watch(cursor)
+        self.assertEqual(syncwatch.free_slots(), 2, "异常路径也必须还名额")

@@ -164,7 +164,19 @@ def watch(request):
         return ok({"changed": False, "cursor": _cursor(user),
                    "server_time": timezone.now().isoformat()})
 
-    changed, cursor = syncwatch.wait_for_change(lambda: _cursor(user), since)
+    # 挂起期间一直占着一个 waitress 线程，所以名额有限（见 syncwatch.WATCH_SLOTS）。
+    # 拿不到名额就**立刻**回，并明确告诉客户端"过 retry_after 秒再来" ——
+    # 不这么说的话客户端会把"被打回"当成"超时"，立刻重挂，变成热循环。
+    if not syncwatch.try_acquire_slot():
+        return ok({"changed": False, "cursor": _cursor(user),
+                   "retry_after": syncwatch.BUSY_RETRY_AFTER_SECONDS,
+                   "server_time": timezone.now().isoformat()})
+    try:
+        changed, cursor = syncwatch.wait_for_change(lambda: _cursor(user), since)
+    finally:
+        # 客户端中途断开时 waitress 会直接抛异常打断这里，所以必须 finally 还名额，
+        # 否则漏还几次之后长轮询就被永久关掉了。
+        syncwatch.release_slot()
     if changed:
         rows = SyncObject.objects.filter(user=user).order_by("name")
         # 顺带把清单带上：客户端拿到就能直接决定要拉哪几个，

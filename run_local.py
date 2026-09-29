@@ -29,4 +29,6 @@ if __name__ == "__main__":
     print(f"[phix] 服务已启动： http://{HOST}:{PORT}   （Ctrl+C 停止）", flush=True)
     print(f"[phix] 健康检查：   http://{HOST}:{PORT}/api/v1/ping", flush=True)
     print(f"[phix] 心履 verify：{'已启用服务密钥' if os.environ.get('PHIX_SERVICE_KEY') else '未设置服务密钥'}", flush=True)
-    serve(application, host=HOST, port=PORT, threads=8, ident="phix")
+    # 线程数跟生产（deploy.py 的 WAITRESS_THREADS）保持一致：长轮询会把请求挂住
+    # 最多 25 秒、一个挂起占一个线程，本地只给 8 的话跑不出真实表现。
+    serve(application, host=HOST, port=PORT, threads=24, ident="phix")

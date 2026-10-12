@@ -1,65 +1,65 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-02T12:35:47+08:00",
+  "updated_at": "2026-10-12T08:56:44+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
-          "version": "1.0.12",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.12-Setup.exe?v=13f2ce6dfc74",
-          "sha256": "13f2ce6dfc74d13ebc217f9ce6f9bc03fa919415cc6e1384d766b624057e6d37",
-          "size": 172236616,
-          "notes": "同步改成秒级：别的设备（手机 / 网页端 / 另一台电脑）改了日程、选课、账号，这边一两秒内自动同步好，不用再等下一次轮询、也不用手动点刷新。空闲时几乎不发请求，比原来每秒问一次更省电、省流量。"
+          "version": "1.0.13",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.13-Setup.exe?v=1f4043c42901",
+          "sha256": "1f4043c429017a7806ed3a831cf9919d2f02b34416c2604320a9014df6f636a4",
+          "size": 172238828,
+          "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         },
         "mac": {
-          "version": "1.0.12",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.12-macOS-x64.zip?v=6492f3ecbef8",
-          "sha256": "6492f3ecbef825b70bacfb87264d0a33d4c805a6de42810e1631e31c9cb3fe59",
-          "size": 213125830,
-          "notes": "同步改成秒级：别的设备改了日程、选课、账号，这边一两秒内自动同步好。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
+          "version": "1.0.13",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.13-macOS-x64.zip?v=5a228df24f97",
+          "sha256": "5a228df24f976d1af71f20a3e7f1343e796579eb4a6543c2e889bc9ceb9fd050",
+          "size": 213127980,
+          "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }
     },
     "phl-lite": {
       "platforms": {
         "win": {
-          "version": "1.2.5",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=2f1680742cc9",
-          "sha256": "2f1680742cc9c38855ef3fbce94d067a4c2cafb903e548b43db1b3e3d2a934fd",
-          "size": 55184431,
-          "notes": "同步改成秒级：别的设备（手机 / 网页端 / 另一台电脑）改了日程、选课、账号，这边一两秒内自动同步好。以前是每 10 分钟才同步一轮，现在不用等了。"
+          "version": "1.2.6",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=0176886fc3b4",
+          "sha256": "0176886fc3b4103df8a32721427116864b562eee9db625e81366143a2e337a5d",
+          "size": 55185422,
+          "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         },
         "mac": {
-          "version": "1.2.5",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=f0e55f54f240",
-          "sha256": "f0e55f54f2402a86250c1d0fa91ea587cc49e693695aa72a720b473e85fcba3e",
-          "size": 34492665,
-          "notes": "同步改成秒级：别的设备改了日程、选课、账号，这边一两秒内自动同步好（以前每 10 分钟才同步一轮）。未签名版：换好首次打开请右键 →「打开」一次。"
+          "version": "1.2.6",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=ab702f9908fd",
+          "sha256": "ab702f9908fd24948fe89d392bfa283eb3e99b15a7574110ae2b430b7b7e1c85",
+          "size": 34495778,
+          "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：换好首次打开请右键 →「打开」一次。"
         }
       }
     },
     "xinlv": {
       "platforms": {
         "win": {
-          "version": "1.1.9",
-          "url": "https://phix.ing/updates/xinlv/xinlv-windows.zip?v=da4119e914d7",
-          "sha256": "da4119e914d7afb08a864d6f4df7a4a347b44569311a5343c96414c7514ad2d0",
-          "size": 78480969,
-          "notes": "心情记录改成秒级同步：手机或网页上记一笔，这边一两秒内就会出现；这边写的也会立刻同步出去，不用再手动同步。"
+          "version": "1.1.10",
+          "url": "https://phix.ing/updates/xinlv/xinlv-windows.zip?v=aad421636722",
+          "sha256": "aad421636722415e5e5303cfb1eea84ab5e2d91cea4c58ec8edbc186d8a0a741",
+          "size": 78484034,
+          "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         },
         "mac": {
-          "version": "1.1.9",
-          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.9.zip?v=de2e88d2c449",
-          "sha256": "de2e88d2c4499ee793315b7e4057a37b1fc307961881b3574b98e334ed64e5e3",
-          "size": 114852238,
-          "notes": "心情记录改成秒级同步：手机或网页上记一笔，这边一两秒内就会出现。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
+          "version": "1.1.10",
+          "url": "https://phix.ing/updates/xinlv/XinLv-mac-1.1.10.zip?v=75f00a58acfb",
+          "sha256": "75f00a58acfb64e6c305b8529ebeb1a7a787ddc8894a9f8e67acf717664a02fa",
+          "size": 114856723,
+          "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         },
         "android": {
-          "version": "1.2.34",
-          "url": "https://phix.ing/updates/xinlv/xinlv-android.apk?v=9837b93e69bd",
-          "sha256": "9837b93e69bde086131c9e5264a89f4b3bad1abf70abff66e10f6a44361ee5e5",
-          "size": 5604532,
-          "notes": "心情记录改成秒级同步：桌面端或网页上改了，这边一两秒内就会更新（应用在前台时）；切回前台也会立刻补同步一次。"
+          "version": "1.2.35",
+          "url": "https://phix.ing/updates/xinlv/xinlv-android.apk?v=96a47bb756aa",
+          "sha256": "96a47bb756aa09109e4f182ca56e168bf4cea6db5e18179fb2c108e7799e08c9",
+          "size": 5607932,
+          "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         }
       }
     }

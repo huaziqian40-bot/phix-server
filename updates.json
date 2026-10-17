@@ -1,21 +1,21 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-17T11:06:09+08:00",
+  "updated_at": "2026-10-17T18:18:00+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
-          "version": "1.0.14",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.14-Setup.exe?v=385ea997e80e",
-          "sha256": "385ea997e80efe829fafc794ddc9348cfdd9a604d0597da54b45fdb8869c4a6f",
-          "size": 172239103,
+          "version": "1.0.15",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.15-Setup.exe?v=b82be236447d",
+          "sha256": "b82be236447de505a86c7fdc7fb2a47fda679a800e3db84de6a1ba844293f0ac",
+          "size": 172240271,
           "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         },
         "mac": {
-          "version": "1.0.14",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.14-macOS-x64.zip?v=6372b9f5a477",
-          "sha256": "6372b9f5a477847efb5708c93cffd295aaa99e2bced3ab4b43e1a507457b9b06",
-          "size": 213128716,
+          "version": "1.0.15",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.15-macOS-x64.zip?v=662580a2e198",
+          "sha256": "662580a2e19876551860727f981133ca4dbea1799aa751c8c7a883313a746199",
+          "size": 213131738,
           "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }
@@ -23,17 +23,17 @@
     "phl-lite": {
       "platforms": {
         "win": {
-          "version": "1.2.6",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=0176886fc3b4",
-          "sha256": "0176886fc3b4103df8a32721427116864b562eee9db625e81366143a2e337a5d",
-          "size": 55185422,
+          "version": "1.2.7",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=23d98faacbad",
+          "sha256": "23d98faacbad5c57dde389220ce9cf46514d9dd43557047b3a18d3432aa921d6",
+          "size": 55189263,
           "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         },
         "mac": {
-          "version": "1.2.6",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=ab702f9908fd",
-          "sha256": "ab702f9908fd24948fe89d392bfa283eb3e99b15a7574110ae2b430b7b7e1c85",
-          "size": 34495778,
+          "version": "1.2.7",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=ba8c05331aed",
+          "sha256": "ba8c05331aed59a2e857c19357d19eab916ca7ccf4b82ca3859c6f24c319285a",
+          "size": 34498027,
           "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：换好首次打开请右键 →「打开」一次。"
         }
       }

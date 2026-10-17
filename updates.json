@@ -1,21 +1,21 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-12T08:56:44+08:00",
+  "updated_at": "2026-10-17T11:06:09+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
-          "version": "1.0.13",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.13-Setup.exe?v=1f4043c42901",
-          "sha256": "1f4043c429017a7806ed3a831cf9919d2f02b34416c2604320a9014df6f636a4",
-          "size": 172238828,
+          "version": "1.0.14",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.14-Setup.exe?v=385ea997e80e",
+          "sha256": "385ea997e80efe829fafc794ddc9348cfdd9a604d0597da54b45fdb8869c4a6f",
+          "size": 172239103,
           "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
         },
         "mac": {
-          "version": "1.0.13",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.13-macOS-x64.zip?v=5a228df24f97",
-          "sha256": "5a228df24f976d1af71f20a3e7f1343e796579eb4a6543c2e889bc9ceb9fd050",
-          "size": 213127980,
+          "version": "1.0.14",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.14-macOS-x64.zip?v=6372b9f5a477",
+          "sha256": "6372b9f5a477847efb5708c93cffd295aaa99e2bced3ab4b43e1a507457b9b06",
+          "size": 213128716,
           "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
         }
       }

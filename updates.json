@@ -1,22 +1,22 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-17T18:18:00+08:00",
+  "updated_at": "2026-11-02T09:22:27+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
-          "version": "1.0.15",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.15-Setup.exe?v=b82be236447d",
-          "sha256": "b82be236447de505a86c7fdc7fb2a47fda679a800e3db84de6a1ba844293f0ac",
-          "size": 172240271,
-          "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
+          "version": "2.0.0",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-2.0.0-Setup.exe?v=36d131a3d43c",
+          "sha256": "36d131a3d43c7a1c7d31383ef39a8e36989c1ebe1d96d383e1468db218419d28",
+          "size": 171975325,
+          "notes": "课程作业体验升级：按课程/待处理/逾期/已完成筛选，作业详情列出附件，可在核对课程·作业·文件后确认上传（仅选择文件不会上传）。另有「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。"
         },
         "mac": {
-          "version": "1.0.15",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-1.0.15-macOS-x64.zip?v=662580a2e198",
-          "sha256": "662580a2e19876551860727f981133ca4dbea1799aa751c8c7a883313a746199",
-          "size": 213131738,
-          "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：点「更新」后由软件自己下载并替换，换好首次打开请右键 →「打开」一次。"
+          "version": "2.0.0",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-2.0.0-macOS-universal.zip?v=7205ebc6a52a",
+          "sha256": "7205ebc6a52a5952ca733e2acdfd7badd7e01a7c6f2682fde2e4fe5acf5ba8c9",
+          "size": 297038676,
+          "notes": "课程作业体验升级（见 Windows 说明）。macOS 为 Universal 包，Intel 与 Apple Silicon 通用，需要 macOS 13 或更新；未签名/未公证，首次打开可能需要在「隐私与安全性」里允许。换好首次打开请右键 →「打开」一次。"
         }
       }
     },

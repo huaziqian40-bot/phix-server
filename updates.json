@@ -1,40 +1,47 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-02T09:22:27+08:00",
+  "updated_at": "2026-11-11T09:05:55+08:00",
   "products": {
     "phl": {
       "platforms": {
         "win": {
-          "version": "2.0.0",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-2.0.0-Setup.exe?v=36d131a3d43c",
-          "sha256": "36d131a3d43c7a1c7d31383ef39a8e36989c1ebe1d96d383e1468db218419d28",
-          "size": 171975325,
-          "notes": "课程作业体验升级：按课程/待处理/逾期/已完成筛选，作业详情列出附件，可在核对课程·作业·文件后确认上传（仅选择文件不会上传）。另有「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。"
+          "version": "2.0.14",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-2.0.14-Setup.exe?v=82dc0d337554",
+          "sha256": "82dc0d33755472689e02a920e212e2c3dca71d7f568190c51ec8298b1130e59e",
+          "size": 131019929,
+          "notes": "与 PHL Lite 1.2.9 统一安装登记、安装目录和共享数据格式；修复 data-root.txt 位置与旧 Profile 迁移，并在写回 YAML/JSON 时保留未知字段和注释。"
         },
         "mac": {
-          "version": "2.0.0",
-          "url": "https://phix.ing/updates/phl/PH-Launcher-2.0.0-macOS-universal.zip?v=7205ebc6a52a",
-          "sha256": "7205ebc6a52a5952ca733e2acdfd7badd7e01a7c6f2682fde2e4fe5acf5ba8c9",
-          "size": 297038676,
-          "notes": "课程作业体验升级（见 Windows 说明）。macOS 为 Universal 包，Intel 与 Apple Silicon 通用，需要 macOS 13 或更新；未签名/未公证，首次打开可能需要在「隐私与安全性」里允许。换好首次打开请右键 →「打开」一次。"
+          "version": "2.0.14",
+          "url": "https://phix.ing/updates/phl/PH-Launcher-2.0.14-macOS-universal.zip?v=12b1f22ccdcb",
+          "sha256": "12b1f22ccdcb1f25da936f43e49b3b009d8f45accf32cace8afada357e958e89",
+          "size": 243122393,
+          "notes": "与 PHL Lite 1.2.9 统一安装登记、安装目录和共享数据格式；macOS 为 Universal 包，Intel 与 Apple Silicon 通用，需要 macOS 13 或更新；ad-hoc 签名、未公证，首次打开可能需要在「隐私与安全性」里允许。"
         }
       }
     },
     "phl-lite": {
       "platforms": {
         "win": {
-          "version": "1.2.7",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=23d98faacbad",
-          "sha256": "23d98faacbad5c57dde389220ce9cf46514d9dd43557047b3a18d3432aa921d6",
-          "size": 55189263,
-          "notes": "设置里新增「关于软件」：能看到当前版本、手动点「检查更新」，还有作者联系方式和「访问官网」按钮。"
+          "version": "1.2.8",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite.exe?v=3df5106aadbf",
+          "sha256": "3df5106aadbf88731a1bc1580bb3e47050ff60d12a3d8508318a2016b7a0062f",
+          "size": 55198319,
+          "notes": "安装包改为与 PH Launcher 同款的标准 NSIS 安装器，默认装到同一目录并共用 data；更新改为后台静默下载、显示进度、用户确认后才安装。"
         },
         "mac": {
-          "version": "1.2.7",
-          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=ba8c05331aed",
-          "sha256": "ba8c05331aed59a2e857c19357d19eab916ca7ccf4b82ca3859c6f24c319285a",
-          "size": 34498027,
-          "notes": "设置里新增「关于软件」：当前版本 / 手动检查更新 / 作者联系方式 / 访问官网。未签名版：换好首次打开请右键 →「打开」一次。"
+          "version": "1.2.8",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-mac-x86_64.zip?v=a5410cd7b1de",
+          "sha256": "a5410cd7b1def13079de6913414603c3a9ae6d205a170929c2083ceba0661d17",
+          "size": 34504870,
+          "notes": "与 PH Launcher 2.0.13 同款更新体验：后台静默下载、显示进度、用户确认后才安装。macOS 为 Intel 版（Apple Silicon 由 Rosetta 转译）；ad-hoc 签名、未公证，首次打开请右键 →「打开」一次。"
+        },
+        "win-nsis": {
+          "version": "1.2.8",
+          "url": "https://phix.ing/updates/phl-lite/PingheLauncherLite-1.2.8-Setup.exe?v=2a00ee8b9654",
+          "sha256": "2a00ee8b9654a3039afda17a0cd0bce3fe7de5765528d4a09a334776d07f041a",
+          "size": 54798057,
+          "notes": "安装包改为与 PH Launcher 同款的标准 NSIS 安装器，默认装到同一目录并共用 data；更新改为后台静默下载、显示进度、用户确认后才安装。"
         }
       }
     },
